@@ -8,10 +8,9 @@ import 'package:http/http.dart' as http;
 
 Future<List<AnuntModel>> fetchAnuntModel() async {
   final response = await http.get(
-    Uri.parse('https://www.samsareala.ro/wp-json/wc/v3/products?'),
+    Uri.parse('https://www.samsareala.ro/wp-json/wc/v3/products'),
     headers: {
       'Content-Type': 'application/json',
-      
       HttpHeaders.authorizationHeader:
           'Basic Y2tfMzBlMWVkNmIwZTE0ZTM4YzNjZGJjMDBlNjc4YTg2Y2U0YjM5MjkzODpjc19hYmYwNzQ3YzQ4MmJkNzMzZmNhNzA3YjE3MjBiNGI1ODUzM2I0YWU4',
     },
@@ -38,10 +37,10 @@ class ListM extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return Center(
-              child: Text(snapshot.error.toString()),
+              child: Text('An error has occurred!'),
             );
           } else if (snapshot.hasData) {
-            return ListItems();
+            return ListItems(anunturi: snapshot.data!);
           } else {
             return const Center(
               child: CircularProgressIndicator(),

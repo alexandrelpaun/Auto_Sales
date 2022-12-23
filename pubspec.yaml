@@ -39,6 +39,7 @@ dependencies:
   
   http: ^0.13.5
   shared_preferences: ^2.0.15
+  html:
 
 dev_dependencies:
   email_validator: '^2.1.17'

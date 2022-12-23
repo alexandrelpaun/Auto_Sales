@@ -1,5 +1,6 @@
 import 'package:auto_sales_flutter/collection/lista_piese.dart';
 import 'package:auto_sales_flutter/models/anunt_piese.dart';
+import 'package:auto_sales_flutter/pieces/fetch_data_piese.dart';
 import 'package:auto_sales_flutter/pieces/list_widget_piese.dart';
 import 'package:flutter/material.dart';
 
@@ -57,9 +58,7 @@ class _AnunturiPieseState extends State<AnunturiPiese> {
         child: MaterialButton(
             // style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
             onPressed: () {},
-            child: ListItemsPiese(
-              marca: dropdownValue,
-            )),
+            child: ListMPiese()),
       ),
     );
   }

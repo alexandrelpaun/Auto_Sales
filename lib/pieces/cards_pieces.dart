@@ -3,16 +3,16 @@ import 'package:auto_sales_flutter/pieces/anunt_piese_detaliat.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CardAnuntPiese extends StatefulWidget {
-  String? titlePiese;
-  String? descriptionPiese;
-  Image? imagePiese;
+  String? name;
+  String? description;
+  Image? images;
   int index;
 
   CardAnuntPiese({
     required this.index,
-    this.titlePiese,
-    this.descriptionPiese,
-    this.imagePiese,
+    this.name,
+    this.description,
+    this.images,
   });
 
   @override
@@ -54,9 +54,9 @@ class _CardAnuntPieseState extends State<CardAnuntPiese> {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        leading: widget.imagePiese!,
-        title: Text(widget.titlePiese ?? ''),
-        subtitle: Text(widget.descriptionPiese ?? ''),
+        leading: widget.images!,
+        title: Text(widget.name ?? ''),
+        subtitle: Text(widget.description ?? ''),
         trailing: IconButton(
           onPressed: () {
             setState(() {
@@ -74,9 +74,9 @@ class _CardAnuntPieseState extends State<CardAnuntPiese> {
               context,
               MaterialPageRoute(
                   builder: (context) => AnunDetaliatPiese(
-                        titlePiese: widget.titlePiese,
-                        descriptionPiese: widget.descriptionPiese,
-                        imagePiese: widget.imagePiese!,
+                        titlePiese: widget.name,
+                        descriptionPiese: widget.description,
+                        imagePiese: widget.images!,
                       )));
         }),
       ),
