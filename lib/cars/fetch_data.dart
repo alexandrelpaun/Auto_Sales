@@ -7,12 +7,17 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<AnuntModel>> fetchAnuntModel() async {
+  String username = 'ck_30e1ed6b0e14e38c3cdbc00e678a86ce4b392938';
+  String password = 'cs_abf0747c482bd733fca707b1720b4b58533b4ae8';
+  String basicAuth =
+      'Basic ' + base64.encode(utf8.encode('$username:$password'));
+
+  print(basicAuth);
   final response = await http.get(
     Uri.parse('https://www.samsareala.ro/wp-json/wc/v3/products'),
-    headers: {
+    headers: <String, String>{
       'Content-Type': 'application/json',
-      HttpHeaders.authorizationHeader:
-          'Basic Y2tfMzBlMWVkNmIwZTE0ZTM4YzNjZGJjMDBlNjc4YTg2Y2U0YjM5MjkzODpjc19hYmYwNzQ3YzQ4MmJkNzMzZmNhNzA3YjE3MjBiNGI1ODUzM2I0YWU4',
+      'authorization': basicAuth
     },
   );
 

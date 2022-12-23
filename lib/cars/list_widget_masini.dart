@@ -1,3 +1,4 @@
+import 'package:auto_sales_flutter/collection/lista_masini.dart';
 import 'package:auto_sales_flutter/models/anunt_cars.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_sales_flutter/cars/cards_cars.dart';
@@ -12,19 +13,32 @@ class ListItems extends StatefulWidget {
   State<ListItems> createState() => _ListItemsState();
 
   List<AnuntModel> anunturi = [];
-  ListItems({required this.anunturi});
+
+  ListItems({required this.anunturi}) {
+
+    for (var element in ListaMasini.anunturiMasini) {
+      if (marca != null && element.marca == marca) {
+        anunturi.add(element);
+      } else if (marca == null) {
+        anunturi.add(element);
+      }
+    }
+  }
+
+  String? marca;
 }
 
 class _ListItemsState extends State<ListItems> {
   late Future<AnuntModel> futureAnunt;
 
-  
-String _parseHtmlString(String htmlString) {
-final document = parse(htmlString);
-final String parsedString = parse(document.body!.text).documentElement!.text;
+  String _parseHtmlString(String htmlString) {
+    final document = parse(htmlString);
+    final String parsedString =
+        parse(document.body!.text).documentElement!.text;
 
-return parsedString;
-}
+    return parsedString;
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -33,9 +47,12 @@ return parsedString;
           print(index);
 
           return CardAnunt(
-            index: index,
+            
+           index:index,
+           id:widget.anunturi[index].id,
             titleCars: widget.anunturi[index].name ?? '',
-            descriptionCars: _parseHtmlString(widget.anunturi[index].description??''),
+            descriptionCars:
+                _parseHtmlString(widget.anunturi[index].description ?? ''),
             imageCars: widget.anunturi[index].imageUrl != null
                 ? Image.network(widget.anunturi[index].imageUrl!)
                 : Image.asset('assets/logo.png'),

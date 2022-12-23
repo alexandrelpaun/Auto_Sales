@@ -1,5 +1,6 @@
 class AnuntModel {
-  int? id;
+  
+  int? id;// am creat o variabiala id , am trecut -o prin constructor
   String? name;
   String? description;
   String? imageUrl;
@@ -8,8 +9,8 @@ class AnuntModel {
   String? combustibil;
 
   AnuntModel(
-      {
-      this.id,
+      {// am trecut -o prin constructor
+     this.id,
       this.name,
       this.description,
       this.imageUrl,
@@ -18,8 +19,8 @@ class AnuntModel {
       this.combustibil});
 
   factory AnuntModel.fromJson(Map<String, dynamic> json) {
-    return AnuntModel(
-      id:json['id'] as int,
+    return AnuntModel(// am trecut -o prin factory constructor
+      id:json['id'] as int ,
       name: json['name'] as String,
       description: json['description'] as String,
       imageUrl: json['images'][0]["src"] as String,

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class Anunt extends StatelessWidget {
   Anunt(
       {super.key,
+      this.id,
       this.imageCars,
       this.titleCars,
       this.descriptionCars});
@@ -13,6 +14,7 @@ class Anunt extends StatelessWidget {
   Image? imageCars;
   String? titleCars;
   String? descriptionCars;
+  int? id;
 
   @override
   Widget build(BuildContext context) {

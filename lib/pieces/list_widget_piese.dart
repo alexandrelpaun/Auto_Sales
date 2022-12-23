@@ -2,6 +2,7 @@ import 'package:auto_sales_flutter/collection/lista_piese.dart';
 import 'package:auto_sales_flutter/models/anunt_cars.dart';
 import 'package:auto_sales_flutter/pieces/cards_pieces.dart';
 import 'package:flutter/material.dart';
+import 'package:html/parser.dart';
 import '../models/anunt_piese.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
@@ -13,8 +14,7 @@ class ListItemsPiese extends StatefulWidget {
 
   List<AnuntModelPiese> tempList = [];
 
-  ListItemsPiese({super.key, this.marca, required this.tempList}) 
-  {
+  ListItemsPiese({super.key, this.marca, required this.tempList}) {
     for (var element in ListaPiese.anunturiPiese) {
       if (marca != null && element.marca == marca) {
         tempList.add(element);
@@ -30,6 +30,14 @@ class ListItemsPiese extends StatefulWidget {
 class _ListItemsPieseState extends State<ListItemsPiese> {
   late Future<AnuntModelPiese> futureAnunt;
 
+  String _parseHtmlString(String htmlString) {
+    final document = parse(htmlString);
+    final String parsedString =
+        parse(document.body!.text).documentElement!.text;
+
+    return parsedString;
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -39,8 +47,8 @@ class _ListItemsPieseState extends State<ListItemsPiese> {
 
           return CardAnuntPiese(
             index: index,
-           name: widget.tempList[index].name,
-            description: widget.tempList[index].description,
+            name: widget.tempList[index].name,
+            description:_parseHtmlString( widget.tempList[index].description??''),
             images: widget.tempList[index].images != null
                 ? Image.network(widget.tempList[index].images!)
                 : Image.asset('asset/logo.png'),

@@ -3,13 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CardAnunt extends StatefulWidget {
+
   CardAnunt({
+
+    this.id,// am creat si aici var id 
     this.titleCars,
     this.descriptionCars,
     this.imageCars,
     required this.index,
+
   });
 
+  int? id;// am creat si aici var id 
   int index;
   Image? imageCars;
   String? titleCars;
@@ -28,7 +33,7 @@ class _CardAnuntState extends State<CardAnunt> {
   void initState() {
     super.initState();
 
-    likedkey = 'liked_key_${widget.index}';
+    likedkey = 'liked_key_${widget.id}';// am modificat din widget.index in widget.id, pentru a seta keya in functie de id 
      _restorePersistedPreferences();
   }
 
