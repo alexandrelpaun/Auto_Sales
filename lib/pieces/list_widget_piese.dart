@@ -1,4 +1,4 @@
-import 'package:auto_sales_flutter/collection/lista_piese.dart';
+
 import 'package:auto_sales_flutter/models/anunt_cars.dart';
 import 'package:auto_sales_flutter/pieces/cards_pieces.dart';
 import 'package:flutter/material.dart';
@@ -15,13 +15,13 @@ class ListItemsPiese extends StatefulWidget {
   List<AnuntModelPiese> tempList = [];
 
   ListItemsPiese({super.key, this.marca, required this.tempList}) {
-    for (var element in ListaPiese.anunturiPiese) {
-      if (marca != null && element.marca == marca) {
-        tempList.add(element);
-      } else if (marca == null) {
-        tempList.add(element);
-      }
-    }
+    // for (var element in ListaPiese.anunturiPiese) {
+    //   if (marca != null && element.marca == marca) {
+    //     tempList.add(element);
+    //   } else if (marca == null) {
+    //     tempList.add(element);
+    //   }
+    // }
   }
 
   String? marca;

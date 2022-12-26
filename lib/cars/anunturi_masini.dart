@@ -1,5 +1,5 @@
 import 'package:auto_sales_flutter/cars/fetch_data.dart';
-import 'package:auto_sales_flutter/collection/lista_masini.dart';
+
 import 'package:auto_sales_flutter/models/anunt_cars.dart';
 import 'package:flutter/material.dart';
 
@@ -24,39 +24,39 @@ class Anunturi extends StatelessWidget {
               ),
               child: Text('Masini'),
             ),
-            DropdownButton(
-                value: dropdownValueCars,
-                onChanged: (value) {
-                  setState() {
-                    dropdownValueCars = value;
-                  }
-                   Navigator.pop(context);
-                },
-                items: ListaMasini.anunturiMasini
-                    .map<DropdownMenuItem<String>>((AnuntModel value) {
-                  return DropdownMenuItem(
-                    value: value.marca ?? '',
-                    child: Text('${value.marca}'),
-                  );
-                }).toList()
-                  ..insert(
-                      0,
-                      DropdownMenuItem(
-                        child: Text('Select marca'),
-                        value: null,
-                      ))
-                ),
+            // DropdownButton(
+            //     value: dropdownValueCars,
+            //     onChanged: (value) {
+            //       setState() {
+            //         dropdownValueCars = value;
+            //       }
+            //        Navigator.pop(context);
+            //     },
+            //     items: ListaMasini.anunturiMasini
+            //         .map<DropdownMenuItem<String>>((AnuntModel value) {
+            //       return DropdownMenuItem(
+            //         value: value.marca ?? '',
+            //         child: Text('${value.marca}'),
+            //       );
+            //     }).toList()
+            //       ..insert(
+            //           0,
+            //           DropdownMenuItem(
+            //             child: Text('Select marca'),
+            //             value: null,
+            //           ))
+            //     ),
           ],
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding:  EdgeInsets.all(10.0),
         child: Container(
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0)),
           child: ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
               onPressed: () {},
-              child: const ListM()),
+              child:  ListM()),
         ),
       ),
     );

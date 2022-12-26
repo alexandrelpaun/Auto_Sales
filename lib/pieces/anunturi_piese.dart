@@ -1,4 +1,4 @@
-import 'package:auto_sales_flutter/collection/lista_piese.dart';
+
 import 'package:auto_sales_flutter/models/anunt_piese.dart';
 import 'package:auto_sales_flutter/pieces/fetch_data_piese.dart';
 import 'package:auto_sales_flutter/pieces/list_widget_piese.dart';
@@ -28,30 +28,30 @@ class _AnunturiPieseState extends State<AnunturiPiese> {
               ),
               child: Text('Piese dezmembrari'),
             ),
-            DropdownButton(
-              value: dropdownValue,
-              onChanged: (value) {
-                // This is called when the user selects an item.
-                setState(() {
-                  dropdownValue = value; //
-                });
-                Navigator.pop(context);
-              },
-              items: ListaPiese.anunturiPiese
-                  .map<DropdownMenuItem<String>>((AnuntModelPiese value) {
-                return DropdownMenuItem(
-                  value: value.marca ?? '',
-                  child: Text('${value.marca}'),
-                );
-              }).toList()
-                ..insert(
-                  0,
-                  DropdownMenuItem(
-                    child: Text('Select marca'),
-                    value: null,
-                  ),
-                ),
-            ),
+            // DropdownButton(
+            //   value: dropdownValue,
+            //   onChanged: (value) {
+            //     // This is called when the user selects an item.
+            //     setState(() {
+            //       dropdownValue = value; //
+            //     });
+            //     Navigator.pop(context);
+            //   },
+            //   items: ListaPiese.anunturiPiese
+            //       .map<DropdownMenuItem<String>>((AnuntModelPiese value) {
+            //     return DropdownMenuItem(
+            //       value: value.marca ?? '',
+            //       child: Text('${value.marca}'),
+            //     );
+            //   }).toList()
+            //     ..insert(
+            //       0,
+            //       DropdownMenuItem(
+            //         child: Text('Select marca'),
+            //         value: null,
+            //       ),
+            //     ),
+            // ),
           ],
         ),
       ),

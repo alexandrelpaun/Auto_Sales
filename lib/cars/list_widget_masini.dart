@@ -1,4 +1,4 @@
-import 'package:auto_sales_flutter/collection/lista_masini.dart';
+
 import 'package:auto_sales_flutter/models/anunt_cars.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_sales_flutter/cars/cards_cars.dart';
@@ -14,15 +14,18 @@ class ListItems extends StatefulWidget {
 
   List<AnuntModel> anunturi = [];
 
-  ListItems({required this.anunturi}) {
+  ListItems({required this.anunturi})
+  
+   {
 
-    for (var element in ListaMasini.anunturiMasini) {
-      if (marca != null && element.marca == marca) {
-        anunturi.add(element);
-      } else if (marca == null) {
-        anunturi.add(element);
-      }
-    }
+    // for (var element in ListaMasini.anunturiMasini) {
+    //   if (marca != null && element.marca == marca) {
+    //     anunturi.add(element);
+    //   } else if (marca == null) {
+    //     anunturi.add(element);
+    //   }
+    // }
+
   }
 
   String? marca;
