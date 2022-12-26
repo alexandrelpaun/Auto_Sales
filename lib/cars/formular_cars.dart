@@ -13,7 +13,7 @@ Future<AnuntModel> createAlbum(String title) async {
     Uri.parse('https://api.sendgrid.com/v3/mail/send'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
-      'authetntication': 'Bearer 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'// nu am reusit sa obtin token key, inca incecrc sa inregistrez DNS in wordPress
+      'Authorization': 'Bearer $SENDGRID_API_KEY'// nu am reusit sa obtin token key, inca incecrc sa inregistrez DNS in wordPress
     },
     body: jsonEncode(<String, String>{// aici aparea data  in loc de body
       'personalizations': '[{"to": [{"email": "test@example.com"}]}],"from": {"email": "test@example.com"},"subject": "Sending with SendGrid is Fun","content": [{"type": "text/plain", "value": "and easy to do anywhere, even with cURL"}]'
